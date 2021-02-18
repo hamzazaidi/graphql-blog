@@ -2,4 +2,9 @@ ul li {
     border: 1px solid rgb(218, 216, 216);
     margin: 5px;
     border-radius: 5px;
+    transition: all 200ms linear;
+}
+
+ul li:hover {
+    box-shadow: 0 5px 15px rgba(54, 54, 54, 0.3);
 }
