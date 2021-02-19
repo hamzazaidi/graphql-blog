@@ -18,7 +18,10 @@ function UserList() {
         return <div className="card" key={u.id}>
           <div className="card-body d-flex flex-row">
             <img src={u.avatar} alt="" />
-            <h5 className="card-title">{u.name}</h5>            
+            <div className="card-content">
+              <h5 className="card-title">{u.name}</h5>  
+              <h6 className="card-subtitle mb-2 text-muted">{ u.email }</h6>          
+            </div>            
           </div>
         </div>
       })
