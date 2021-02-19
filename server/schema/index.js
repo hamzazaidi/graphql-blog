@@ -7,7 +7,8 @@ const UserType = new GraphQLObjectType({
         id: { type: GraphQLID },
         name: { type: GraphQLString },
         email: { type: GraphQLString },
-        address: { type: AddressType },     
+        avatar: { type: GraphQLString },
+        address: { type: AddressType },             
         posts: {
             type: new GraphQLList(PostType),
             async resolve(parent, args) {
@@ -68,7 +69,8 @@ const RootQuery = new GraphQLObjectType({
             },
             async resolve(parent, args) {
                 const result = await axios.get(`https://jsonplaceholder.typicode.com/users/${args.id}`);
-                return result.data;
+                const user = { ...result.data, avatar: `https://i.pravatar.cc/150?u=${result.data.email}` }
+                return user;
             }
         },
         post: {
@@ -85,7 +87,8 @@ const RootQuery = new GraphQLObjectType({
             type: new GraphQLList(UserType),
             async resolve(parent, args) {
                 const result = await axios.get('https://jsonplaceholder.typicode.com/users');
-                return result.data;
+                const response = result.data.map(r => ({ ...r, avatar: `https://i.pravatar.cc/150?u=${r.email}` }))
+                return response;
             }
         },
         posts: {

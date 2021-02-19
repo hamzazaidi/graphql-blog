@@ -2,27 +2,31 @@ import { useQuery } from '@apollo/client';
 import React from 'react';
 import { User } from '../../model/User';
 import { GET_USERS } from '../../queries';
+import Spinner from '../Spinner/Spinner';
 import './UserList.css';
 function UserList() {
   const { loading, error, data } = useQuery(GET_USERS);
   function displayUsers() {
-    if(loading) {
-      return <li>Loading users...</li>
+    if (loading) {
+      return <div className="card">
+        <div className="card-body">
+          <Spinner />
+        </div>
+      </div>
     } else {
       return data.users.map((u: User) => {
-        return <li key={u.id}>
-          <div className="card">
-            <div className="card-body">
-              { u.name }
-            </div>
+        return <div className="card" key={u.id}>
+          <div className="card-body d-flex flex-row">
+            <img src={u.avatar} alt="" />
+            <h5 className="card-title">{u.name}</h5>            
           </div>
-        </li>
+        </div>
       })
     }
   }
   return (
-    <div className="UserList">
-      <ul>{ displayUsers() }</ul>
+    <div className="user-list">
+      { displayUsers()}
     </div>
   );
 }
