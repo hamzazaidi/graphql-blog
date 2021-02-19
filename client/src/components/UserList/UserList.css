@@ -18,3 +18,8 @@
 .user-list .card-content {
     margin-left: 20px;;
 }
+
+.user-list .card-content .card-subtitle img {
+    width: 30px;
+    height: 30px;
+}

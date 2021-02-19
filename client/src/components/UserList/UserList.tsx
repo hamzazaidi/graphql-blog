@@ -4,6 +4,7 @@ import { User } from '../../model/User';
 import { GET_USERS } from '../../queries';
 import Spinner from '../Spinner/Spinner';
 import './UserList.css';
+
 function UserList() {
   const { loading, error, data } = useQuery(GET_USERS);
   function displayUsers() {
@@ -20,7 +21,8 @@ function UserList() {
             <img src={u.avatar} alt="" />
             <div className="card-content">
               <h5 className="card-title">{u.name}</h5>  
-              <h6 className="card-subtitle mb-2 text-muted">{ u.email }</h6>          
+              <h6 className="card-subtitle mb-2 text-muted">{ u.email }</h6>    
+              <h6 className="card-subtitle mb-2 text-muted"><img src="/icons/location.svg"/>{ u.address.city }</h6>      
             </div>            
           </div>
         </div>

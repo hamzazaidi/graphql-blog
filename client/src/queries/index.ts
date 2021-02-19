@@ -6,6 +6,9 @@ const GET_USERS = gql`
         name
         avatar    
         email  
+        address {
+            city
+        }
     }
   }
 `
