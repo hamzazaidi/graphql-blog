@@ -17,12 +17,12 @@ function UserList() {
     } else {
       return data.users.map((u: User) => {
         return <div className="card" key={u.id}>
-          <div className="card-body d-flex flex-row">
+          <div className="card-body d-flex flex-row shadow-lg p-3 bg-body rounded">
             <img src={u.avatar} alt="" />
             <div className="card-content">
               <h5 className="card-title">{u.name}</h5>  
               <h6 className="card-subtitle mb-2 text-muted">{ u.email }</h6>    
-              <h6 className="card-subtitle mb-2 text-muted">
+              <h6 className="card-subtitle mb-2 text-muted location">
                 <img src="/icons/location.svg"/>{ u.address.city }
               </h6>      
             </div>            

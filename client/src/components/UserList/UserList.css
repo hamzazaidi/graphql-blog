@@ -1,8 +1,6 @@
-.user-list .card {
-    border: 1px solid rgb(218, 216, 216);
-    margin: 5px;
-    border-radius: 5px;
+.user-list .card {   
     transition: all 200ms linear;
+    margin: 10px 0;
 }
 
 .user-list .card:hover {
@@ -13,6 +11,7 @@
     border-radius: 50%;
     width: 75px;
     height: 75px;
+    border: 1px solid rgb(97, 97, 97);   
 }
 
 .user-list .card-content {
@@ -22,4 +21,9 @@
 .user-list .card-content .card-subtitle img {
     width: 30px;
     height: 30px;
+}
+
+.user-list .card-content .location img {
+    margin-right: 10px;
+    border: 0;
 }

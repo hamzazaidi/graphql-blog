@@ -1,8 +1,6 @@
-.posts .card {
-    border: 1px solid rgb(218, 216, 216);
-    margin: 5px;
-    border-radius: 5px;
+.posts .card {   
     transition: all 200ms linear;
+    margin: 10px 0;
 }
 
 .posts .card:hover {
@@ -11,5 +9,18 @@
 }
 
 .posts .card-content {
-    margin-left: 20px;;
+    margin-left: 20px;
+    width: 80%;
+}
+
+.posts .card-body img {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    border: 1px solid rgb(97, 97, 97);   
+}
+
+.posts .card-body .flex-fill {
+    margin-left: 10px;
+    text-align: center;
 }
