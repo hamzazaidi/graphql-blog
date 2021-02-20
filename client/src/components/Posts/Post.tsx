@@ -19,7 +19,11 @@ function Posts() {
                 <div className="card-content">
                   <h5 className="card-title">{u.title}</h5>  
                   <h6 className="card-subtitle mb-2 text-muted">{ u.body }</h6>                      
-                </div>            
+                </div>     
+                <div>
+                    <img src={ u.user.avatar } alt=""/>
+                    <h6 className="card-subtitle mb-2 text-muted">{ u.user.name }</h6>                      
+                </div>       
               </div>
             </div>
           })

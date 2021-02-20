@@ -19,6 +19,10 @@ const GET_POSTS = gql`
       id
       title
       body
+      user {
+        name
+        avatar
+      }
     }
   }
 `

@@ -51,7 +51,8 @@ const PostType = new GraphQLObjectType({
             type: UserType,
             async resolve(parent, args) {
                 const result = await axios.get(`https://jsonplaceholder.typicode.com/users/${parent.userId}`);
-                return result.data;
+                const user = { ...result.data, avatar: `https://i.pravatar.cc/150?u=${Math.random()}` }
+                return user;
             }
         }
     })
@@ -69,7 +70,8 @@ const RootQuery = new GraphQLObjectType({
             },
             async resolve(parent, args) {
                 const result = await axios.get(`https://jsonplaceholder.typicode.com/users/${args.id}`);
-                const user = { ...result.data, avatar: `https://i.pravatar.cc/150?u=${Math.random()}${result.data.email}` }
+                console.log('I am fired USER')
+                const user = { ...result.data, avatar: `https://i.pravatar.cc/150?u=${Math.random()}` }
                 return user;
             }
         },
@@ -87,14 +89,14 @@ const RootQuery = new GraphQLObjectType({
             type: new GraphQLList(UserType),
             async resolve(parent, args) {
                 const result = await axios.get('https://jsonplaceholder.typicode.com/users');
-                const response = result.data.map(r => ({ ...r, avatar: `https://i.pravatar.cc/150?u=${Math.random()}${r.email}` }))
+                const response = result.data.map(r => ({ ...r, avatar: `https://i.pravatar.cc/150?u=${Math.random()}` }))
                 return response;
             }
         },
         posts: {
             type: new GraphQLList(PostType),
             async resolve(parent, args) {
-                const result = await axios.get('https://jsonplaceholder.typicode.com/posts');
+                const result = await axios.get('https://jsonplaceholder.typicode.com/posts');                                
                 return result.data;
             }
         }
