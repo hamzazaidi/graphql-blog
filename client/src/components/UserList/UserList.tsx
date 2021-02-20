@@ -22,7 +22,9 @@ function UserList() {
             <div className="card-content">
               <h5 className="card-title">{u.name}</h5>  
               <h6 className="card-subtitle mb-2 text-muted">{ u.email }</h6>    
-              <h6 className="card-subtitle mb-2 text-muted"><img src="/icons/location.svg"/>{ u.address.city }</h6>      
+              <h6 className="card-subtitle mb-2 text-muted">
+                <img src="/icons/location.svg"/>{ u.address.city }
+              </h6>      
             </div>            
           </div>
         </div>
@@ -30,7 +32,7 @@ function UserList() {
     }
   }
   return (
-    <div className="user-list">
+    <div className="container user-list">
       { displayUsers()}
     </div>
   );
