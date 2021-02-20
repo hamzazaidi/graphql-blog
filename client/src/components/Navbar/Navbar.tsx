@@ -10,10 +10,10 @@ function Navbar() {
             <BootstrapNavbar.Toggle aria-controls="basic-navbar-nav" />
             <BootstrapNavbar.Collapse id="basic-navbar-nav">
                 <Nav className="mr-auto">
-                    <LinkContainer to="/service">
+                    <LinkContainer to="/blogs">
                         <Nav.Link>Blogs</Nav.Link>
                     </LinkContainer>
-                    <LinkContainer to="/about">
+                    <LinkContainer to="/bloggers">
                         <Nav.Link>Bloggers</Nav.Link>
                     </LinkContainer>
                 </Nav>

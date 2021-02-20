@@ -13,5 +13,15 @@ const GET_USERS = gql`
   }
 `
 
+const GET_POSTS = gql`
+  {
+    posts {
+      id
+      title
+      body
+    }
+  }
+`
 
-export { GET_USERS }
+
+export { GET_USERS, GET_POSTS }
