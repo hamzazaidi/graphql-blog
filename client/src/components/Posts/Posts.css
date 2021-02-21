@@ -3,6 +3,11 @@
     margin: 10px 0;
 }
 
+.posts .card.is-selected {
+    border: 1px #009eff solid;
+    background: #d2e3ec;
+}   
+
 .posts .card:hover {
     cursor: pointer;
     box-shadow: 0 5px 15px rgba(54, 54, 54, 0.3);
