@@ -1,11 +1,16 @@
 .user-list .card {   
     transition: all 200ms linear;
-    margin: 10px 0;
+    margin: 10px;
+    width: 400px;
 }
 
 .user-list .card:hover {
     box-shadow: 0 5px 15px rgba(54, 54, 54, 0.3);
 }
+.user-list  .card.is-selected {
+    border: 1px #009eff solid;
+    background: #d2e3ec;
+}   
 
 .user-list img{
     border-radius: 50%;

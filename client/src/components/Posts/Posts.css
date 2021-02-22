@@ -1,7 +1,10 @@
+
+
 .posts .card {   
     transition: all 200ms linear;
     margin: 10px 0;
 }
+
 
 .posts .card.is-selected {
     border: 1px #009eff solid;

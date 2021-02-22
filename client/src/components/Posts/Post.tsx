@@ -11,6 +11,15 @@ function Posts() {
     function selectPost(value: string) {
         setPostId(value);
     }
+
+    function setSelectedPostClass(id: string) {
+        return id === postId ? 'card is-selected' : 'card';
+    }
+
+    function setContainerClass() {
+        return postId ? 'container-md posts selected' : 'container-md posts'
+    }
+
     function displayPosts() {
         if (loading) {
             return <div className="card">
@@ -21,10 +30,10 @@ function Posts() {
         } else {
             return data.posts.map((u: Post) => {
                 return <div
-                        className={ u.id === postId ? 'card is-selected' : 'card' }
-                        key={u.id}
-                        onClick={() => selectPost(u.id)}                        
-                    >
+                    className={setSelectedPostClass(u.id)}
+                    key={u.id}
+                    onClick={() => selectPost(u.id)}
+                >
                     <div className="card-body d-flex flex-row shadow-lg p-3 bg-body rounded">
                         <div className="card-content">
                             <h5 className="card-title">{u.title}</h5>
@@ -40,7 +49,7 @@ function Posts() {
         }
     }
     return (
-        <div className="container posts">
+        <div className={setContainerClass()}>
             { displayPosts()}
         </div>
     );
