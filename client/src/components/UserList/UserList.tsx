@@ -1,5 +1,6 @@
 import { useQuery } from '@apollo/client';
 import React, { useState } from 'react';
+import { Button, Modal } from 'react-bootstrap';
 import { User } from '../../model/User';
 import { GET_USERS } from '../../queries';
 import Spinner from '../Spinner/Spinner';
@@ -8,8 +9,16 @@ import './UserList.css';
 function UserList() {
   const { loading, error, data } = useQuery(GET_USERS);
   const [userId, setUserId] = useState('');
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => {
+    setShow(false); 
+    setUserId('');
+  }
+  
   function selectUser(value: string) {
     setUserId(value);
+    setShow(true);
   }
   function setSelectedUserClass(id: string) {
     return id === userId ? 'card flex-grow-1 is-selected' : 'card flex-grow-1';
@@ -45,6 +54,20 @@ function UserList() {
   return (
     <div className="container user-list d-flex flex-wrap">
       { displayUsers()}
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Modal heading</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={handleClose}>
+            Save Changes
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 }
