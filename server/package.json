@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build:server": "node app.js",
-    "heroku-postbuild": "npm run build:server"
+    "build:server": "node app.js"
   },
   "author": "",
   "license": "ISC",

@@ -1,0 +1,19 @@
+{
+  "name": "graphql-blog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "heroku-postbuild": "cd server && npm run build:server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hamzazaidi/graphql-blog.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hamzazaidi/graphql-blog/issues"
+  },
+  "homepage": "https://github.com/hamzazaidi/graphql-blog#readme"
+}
