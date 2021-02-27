@@ -8,20 +8,20 @@ import './UserList.css';
 
 function UserList() {
   const { loading, error, data } = useQuery(GET_USERS);
-  const [userId, setUserId] = useState('');
+  const [user, setUser] = useState<User | null>(null);
   const [show, setShow] = useState(false);
 
   const handleClose = () => {
     setShow(false); 
-    setUserId('');
+    setUser(null);
   }
   
-  function selectUser(value: string) {
-    setUserId(value);
+  function selectUser(user: User) {
+    setUser(user);
     setShow(true);
   }
   function setSelectedUserClass(id: string) {
-    return id === userId ? 'card flex-grow-1 is-selected' : 'card flex-grow-1';
+    return id === user?.id ? 'card flex-grow-1 is-selected' : 'card flex-grow-1';
 }
   function displayUsers() {
     if (loading) {
@@ -35,7 +35,7 @@ function UserList() {
         return <div
             className={setSelectedUserClass(u.id)}
             key={u.id}
-            onClick={() => selectUser(u.id)}>
+            onClick={() => selectUser(u)}>
           <div className="card-body d-flex flex-row shadow-lg p-3 bg-body rounded">
             <img src={u.avatar} alt="" />
             <div className="card-content">
@@ -55,8 +55,10 @@ function UserList() {
     <div className="container user-list d-flex flex-wrap">
       { displayUsers()}
       <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+        <Modal.Header closeButton className="user-list">
+          <Modal.Title>
+            <img src={user?.avatar} alt="" />
+          </Modal.Title>
         </Modal.Header>
         <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
         <Modal.Footer>
