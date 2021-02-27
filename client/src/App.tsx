@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Navbar from './components/Navbar/Navbar';
 import Posts from './components/Posts/Post';
 const client = new ApolloClient({
-  uri: 'https://test-blog-graphql.herokuapp.com/graphql',
+  uri: '/graphql',
   cache: new InMemoryCache()
 });
 
